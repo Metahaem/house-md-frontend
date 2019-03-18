@@ -31,3 +31,88 @@
     transform: rotate(360deg);
   }
 }
+
+.logo {
+  position: absolute;
+  width: 440px;
+  height: 151px;
+  left: 0px;
+  top: 0px;
+}
+
+.bodyOutline {
+  position: absolute;
+  width: 267px;
+  height: 546px;
+  left: 379px;
+  top: 43px;
+}
+
+.symptomDisplayer {
+  position: absolute;
+  width: 1100px;
+  height: 151px;
+  left: 412px;
+  top: 0px;
+
+background: #BDFACB;
+}
+
+.Main {
+  position: absolute;
+  width: 1100px;
+  height: 750px;
+  left: 412px;
+  right: 0px;
+  top: 151px;
+  bottom: 0px;
+  background: #C1D7F8;
+}
+
+.Sidebar {
+  position: absolute;
+  width: 440px;
+  height: 750px;
+  left: 0px;
+  right: 150px;
+  top: 151px;
+  background: url(sidebar-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.HeadTarget {
+  position: absolute;
+  left: 450px;
+  top: 20px;
+}
+
+.PelvisTarget {
+  position: absolute;
+  left: 450px;
+  top: 280px;
+}
+
+.ChestTarget {
+  position: absolute;
+  left: 465px;
+  top: 105px;
+}
+
+.StomachTarget {
+  position: absolute;
+  left: 465px;
+  top: 205px;
+}
+
+.LegsTarget {
+  position: absolute;
+  left: 414px;
+  top: 480px;
+}
+
+.HandsTarget {
+  position: absolute;
+  left: 570px;
+  top: 280px;
+}

@@ -1,28 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Navbar from './Navbar'
+import Sidebar from './Sidebar'
+import Main from './Main'
+
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    symptoms: [],
+    currentBodyPart: null,
+    diagnoses: [],
+    diagnosisScreenToggle: false
+  }
+
+  bodyClick = (e, bodyPart) => {
+    e.preventDefault()
+    console.log(bodyPart)
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Navbar 
+          symptoms={this.state.symptoms}
+          diagnoseClick={this.diagnoseClick}
+          symptomDelete={this.symptomDelete}
+        />
+        <Sidebar 
+          symptoms={this.state.symptoms}
+          bodyPart={this.state.bodyPart}
+          symptomClick={this.symptomClick}
+        />
+        <Main 
+          diagnoses={this.state.diagnoses} 
+          bodyClick={this.bodyClick}
+          currentBodyPart={this.state.currentBodyPart}
+          diagnosisScreenToggle={this.state.diagnosisScreenToggle}
+        />
+        
       </div>
-    );
+    )
   }
 }
 
 export default App;
+
