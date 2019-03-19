@@ -17,8 +17,16 @@ class App extends Component {
   }
 
   filterOutSelectedSymptoms = (symps) => {
-    return symps.filter(symp => !this.state.selectedSymptoms.includes(symp))
+    return symps.filter(symp => !this.state.selectedSymptoms.map(selectedSymp => selectedSymp.id).includes(symp.id))
   }
+
+  removeSymptomFromState = (symptom) => {
+    let clone = [...this.state.symptoms]
+    const filteredList = clone.filter(eachsymptom => eachsymptom.id !== symptom.id)
+    this.setState({
+        symptoms: filteredList
+    })
+}
 
   bodyClick = (e, bodyPart) => {
     e.preventDefault()
@@ -31,8 +39,8 @@ class App extends Component {
     e.preventDefault()
     let selectedSymptomClone = this.state.selectedSymptoms
     selectedSymptomClone = [...selectedSymptomClone, symptom]
-    // debugger
     this.setState({selectedSymptoms: selectedSymptomClone})
+    this.removeSymptomFromState(symptom)
   }
 
   render() {
