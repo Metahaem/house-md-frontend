@@ -16,13 +16,16 @@ const styles = theme => ({
 
 
 function SymptomChip(props) {
-  const { classes, handleDelete, symptom } = props;
+  const { handleDelete, symptom } = props;
   return (
-    <div className={classes.root}>
+    <div 
+    // className={classes.root}
+    >
       <Chip
-        label={"Symptom Naaame"}
+        // key= {symptom.id}
+        label={symptom.name}
         onDelete={handleDelete}
-        className={classes.chip}
+        className={styles.chip}
       />
     </div>
     )

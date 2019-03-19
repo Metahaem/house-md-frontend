@@ -1,16 +1,18 @@
 import React from 'react';
-import SymptomSelecter from './SymptomSelecter'
+import SymptomSelector from './SymptomSelector'
 import photo from './sidebar-background.jpg'
 
 const SideBar = ({bodyPart, symptoms, symptomClick}) => {
 
     return (
         <div className='Sidebar'>
-          <SymptomSelecter 
+        {symptoms.length ? 
+          <SymptomSelector 
             bodyPart={bodyPart}
             symptoms={symptoms}
             symptomClick={symptomClick}
         />
+        : null}
         </div>
     )
 }

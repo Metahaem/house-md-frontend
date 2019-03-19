@@ -2,13 +2,14 @@ import React from 'react';
 import SymptomChip from './SymptomChip'
 import DiagnoseButton from './DiagnoseButton'
 
-const SymptomDisplayer = ({symptoms, diagnoseClick, symptomDelete}) => {
+const SymptomDisplayer = ({selectedSymptoms, diagnoseClick, symptomDelete}) => {
 
     return (
         <div className='symptomDisplayer'>
-            {symptoms.length ? (
-                symptoms.map(symptom => {
+            {selectedSymptoms.length ? (
+                selectedSymptoms.map(symptom => {
                     return <SymptomChip 
+                        key={symptom.id}
                         symptom={symptom} 
                         symptomDelete={symptomDelete}
                     />

@@ -3,14 +3,14 @@ import Logo from './Logo'
 import SymptomDisplayer from './SymptomDisplayer'
 
 
-const Navbar = ({symptoms, diagnoseClick, symptomDelete}) => {
+const Navbar = ({selectedSymptoms, diagnoseClick, symptomDelete}) => {
 
 
     return (
         <nav>
             <Logo />
             <SymptomDisplayer 
-                symptoms={symptoms}
+                selectedSymptoms={selectedSymptoms}
                 diagnoseClick={diagnoseClick}
                 symptomDelete={symptomDelete}
             />
