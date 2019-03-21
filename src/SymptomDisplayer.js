@@ -7,13 +7,21 @@ const SymptomDisplayer = ({selectedSymptoms, diagnoseClick, symptomDelete}) => {
     return (
         <div className='symptomDisplayer'>
             {selectedSymptoms.length ? (
-                selectedSymptoms.map(symptom => {
+                <div> 
+                <div>
+                    <DiagnoseButton diagnoseClick={diagnoseClick}/>
+                </div>
+
+                <div>
+                    {selectedSymptoms.map(symptom => {
                     return <SymptomChip 
                         key={symptom.id}
                         symptom={symptom} 
                         symptomDelete={symptomDelete}
                     />
-                })
+                    })}
+                </div>
+                </div>
             )        
             :
                 <h2>Please select your symptoms</h2>

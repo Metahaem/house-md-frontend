@@ -13,7 +13,8 @@ class App extends Component {
     selectedSymptoms: [],
     currentBodyPart: null,
     diagnoses: [],
-    diagnosisScreenToggle: false
+    selectedIssue: null, 
+    selectedIssueSymptoms: []
   }
 
   filterOutSelectedSymptoms = (symps) => {
@@ -35,12 +36,34 @@ class App extends Component {
     .then(symptoms => this.setState({symptoms}))
   }
 
+  symptomDelete = (symptom) => {
+    let clone = [...this.state.selectedSymptoms]
+    const filteredList = clone.filter(eachsymptom => eachsymptom.id !== symptom.id)
+    this.setState({
+        selectedSymptoms: filteredList
+    })
+  }
+
   symptomClick = (e, symptom) => {
     e.preventDefault()
     let selectedSymptomClone = this.state.selectedSymptoms
     selectedSymptomClone = [...selectedSymptomClone, symptom]
     this.setState({selectedSymptoms: selectedSymptomClone})
     this.removeSymptomFromState(symptom)
+  }
+
+  diagnoseClick = (e) => {
+    e.preventDefault()
+    let diagnosesIDArray=this.state.selectedSymptoms.map(symp => symp.diagnoses)
+    diagnosesIDArray=diagnosesIDArray.flat().map(diag => diag.issue_id)
+    return API.getDiagnoses(diagnosesIDArray)
+    .then(diagnoses => this.setState({diagnoses: diagnoses, symptoms: []}))
+  }
+
+  issueClick = (e, issue) => {
+    e.preventDefault()
+    return API.getSymptomsOfIssue(issue.id)
+    .then((symptoms) => this.setState({selectedIssue: issue, selectedIssueSymptoms: symptoms}))
   }
 
   render() {
@@ -55,12 +78,15 @@ class App extends Component {
           symptoms={this.state.symptoms}
           bodyPart={this.state.bodyPart}
           symptomClick={this.symptomClick}
+          selectedIssue={this.state.selectedIssue}
+          selectedIssueSymptoms={this.state.selectedIssueSymptoms}
         />
         <Main 
           diagnoses={this.state.diagnoses} 
           bodyClick={this.bodyClick}
           currentBodyPart={this.state.currentBodyPart}
-          diagnosisScreenToggle={this.state.diagnosisScreenToggle}
+          selectedSymptoms={this.state.selectedSymptoms}
+          issueClick={this.issueClick}
         />
         
       </div>

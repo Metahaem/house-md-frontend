@@ -2,11 +2,11 @@ import React from 'react';
 import DiagnosesDisplayer from './DiagnosesDisplayer'
 import BodyImage from './BodyImage'
 
-const Main = ({diagnoses, diagnosisScreenToggle, currentBodyPart, bodyClick}) => {
+const Main = ({diagnoses, currentBodyPart, bodyClick, selectedSymptoms, issueClick}) => {
     return (
         <div className='Main'>
-            {diagnosisScreenToggle ? 
-                <DiagnosesDisplayer diagnoses={diagnoses} />
+            {diagnoses.length ? 
+                <DiagnosesDisplayer diagnoses={diagnoses} selectedSymptoms={selectedSymptoms} issueClick={issueClick}/>
             :
                 <BodyImage 
                     currentBodyPart={currentBodyPart}

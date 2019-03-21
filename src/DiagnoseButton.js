@@ -12,13 +12,13 @@ const styles = theme => ({
     },
   });
 
-const DiagnoseButton = ({classes}) => {
+const DiagnoseButton = ({classes, diagnoseClick}) => {
 
 
     return (
-        <div>
-              <Fab variant="extended" aria-label="Delete" className={classes.fab}>
-                Extended
+        <div onClick={diagnoseClick}>
+              <Fab variant="extended" aria-label="Delete" className={styles.fab}>
+                Diagnose
               </Fab>
         </div>
     )

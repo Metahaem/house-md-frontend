@@ -1,9 +1,15 @@
 import React from 'react';
 import SymptomSelector from './SymptomSelector'
 import photo from './sidebar-background.jpg'
+import IssueDisplayer from './IssueDisplayer'
 
-const SideBar = ({bodyPart, symptoms, symptomClick}) => {
 
+const displayIssue = (issue, selectedIssueSymptoms) => {
+    return issue ? 
+        <IssueDisplayer issue={issue} symptoms={selectedIssueSymptoms} /> : null
+}
+const SideBar = ({bodyPart, symptoms, symptomClick, selectedIssue, selectedIssueSymptoms}) => {
+    
     return (
         <div className='Sidebar'>
         {symptoms.length ? 
@@ -12,7 +18,7 @@ const SideBar = ({bodyPart, symptoms, symptomClick}) => {
             symptoms={symptoms}
             symptomClick={symptomClick}
         />
-        : null}
+        : displayIssue(selectedIssue, selectedIssueSymptoms)}
         </div>
     )
 }

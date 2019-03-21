@@ -1,34 +1,48 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Chip from '@material-ui/core/Chip';
+import { Icon, Label } from 'semantic-ui-react'
+import Legs from './Images/Legs.png'
+import Head from './Images/Head.png'
+import Arms from './Images/Arms.png'
+import Pelvis from './Images/Pelvis.png'
+import Stomach from './Images/Stomach.png'
+import Chest from './Images/Chest.png'
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
-  chip: {
-    margin: theme.spacing.unit,
-  },
-});
+const getImage = (category) => {
+  if (category==="Head") {
+      return Head
+  }
+  else if (category==="Pelvis") {
+      return Pelvis
+  }
+  else if (category==="Legs") {
+      return Legs
+  }
+  else if (category==="Arms") {
+      return Arms
+  }
+  else if (category==="Chest") {
+      return Chest
+  }
+  else if (category==="Stomach") {
+      return Stomach
+  }
+
+}
 
 
-function SymptomChip(props) {
-  const { handleDelete, symptom } = props;
+const SymptomChip = (props) => {
+  // const { symptomDelete, symptom} = props;
   return (
-    <div 
-    // className={classes.root}
-    >
-      <Chip
-        // key= {symptom.id}
-        label={symptom.name}
-        onDelete={handleDelete}
-        className={styles.chip}
-      />
+    <div>
+    <Label as='a'>
+      <img src='https://react.semantic-ui.com/images/avatar/small/ade.jpg' />
+      {/* {props.symptom.name} */}
+      hi
+      <Icon name='delete' onClick={(e) => props.symptomDelete(e, props.symptom)} />
+    </Label>
     </div>
     )
 }
 
 export default SymptomChip
+
