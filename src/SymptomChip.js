@@ -7,6 +7,7 @@ import Pelvis from './Images/Pelvis.png'
 import Stomach from './Images/Stomach.png'
 import Chest from './Images/Chest.png'
 
+
 const getImage = (category) => {
   if (category==="Head") {
       return Head
@@ -14,7 +15,7 @@ const getImage = (category) => {
   else if (category==="Pelvis") {
       return Pelvis
   }
-  else if (category==="Legs") {
+  else if (category==="Legs" || category==="Limbs") {
       return Legs
   }
   else if (category==="Arms") {
@@ -31,14 +32,13 @@ const getImage = (category) => {
 
 
 const SymptomChip = (props) => {
-  // const { symptomDelete, symptom} = props;
+  const { symptomDelete, symptom, location} = props;
   return (
     <div>
-    <Label as='a'>
-      <img src='https://react.semantic-ui.com/images/avatar/small/ade.jpg' />
-      {/* {props.symptom.name} */}
-      hi
-      <Icon name='delete' onClick={(e) => props.symptomDelete(e, props.symptom)} />
+    <Label image size='small' color='teal'>
+        <img avatar className='Icon' src={getImage(symptom.category)} />
+      {symptom.name}
+      {location==='navbar' ? <Icon name='delete' onClick={(e) => symptomDelete(e, symptom.id)} /> : null}
     </Label>
     </div>
     )

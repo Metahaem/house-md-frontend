@@ -3,11 +3,11 @@ import { Card, Icon, List } from 'semantic-ui-react'
 
 
 const IssueDisplayer = ({issue, symptoms}) => (
+<div className='IssueDisplayer'>
   <Card>
     <Card.Content header={issue.name} />
     <Card.Content description={issue.description} />
     <Card.Content extra>
-      <Icon name='stethoscope' />
         <List>
             {symptoms.length ? symptoms.map(symp => {
                 return <List.Item key={symp.id}>
@@ -18,6 +18,7 @@ const IssueDisplayer = ({issue, symptoms}) => (
         </List>
     </Card.Content>
   </Card>
+</div>
 )
 
 export default IssueDisplayer

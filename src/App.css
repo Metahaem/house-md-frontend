@@ -34,7 +34,7 @@
 
 .logo {
   position: absolute;
-  width: 480px;
+  width: 410px;
   height: 151px;
   left: 0px;
   top: 0px;
@@ -52,7 +52,7 @@
   position: absolute;
   width: 1100px;
   height: 151px;
-  left: 480px;
+  left: 410px;
   top: 0px;
 
 background: #BDFACB;
@@ -62,7 +62,7 @@ background: #BDFACB;
   position: absolute;
   width: 1100px;
   height: 750px;
-  left: 480px;
+  left: 410px;
   right: 0px;
   top: 151px;
   bottom: 0px;
@@ -71,7 +71,7 @@ background: #BDFACB;
 
 .Sidebar {
   position: absolute;
-  width: 480px;
+  width: 410px;
   height: 750px;
   left: 0px;
   right: 150px;
@@ -84,7 +84,7 @@ background: #BDFACB;
 .HeadTarget {
   position: absolute;
   left: 450px;
-  top: 20px;
+  top: 35px;
 }
 
 .PelvisTarget {
@@ -96,7 +96,7 @@ background: #BDFACB;
 .ChestTarget {
   position: absolute;
   left: 465px;
-  top: 105px;
+  top: 115px;
 }
 
 .StomachTarget {
@@ -111,13 +111,30 @@ background: #BDFACB;
   top: 480px;
 }
 
-.HandsTarget {
+.ArmsTarget {
   position: absolute;
   left: 570px;
   top: 280px;
 }
 
+.IssueDisplayer {
+  position: absolute;
+  left: 75px;
+  top: 45px;
+}
+
 .ListItem {
   position: absolute;
+}
+
+.Icon {
+  width: 100;
+  height: 100;
+}
+
+.GeneralTarget {
+  position: absolute;
+  left: 420px;
+  top: 5px;
 }
 

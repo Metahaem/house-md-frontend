@@ -3,7 +3,7 @@ import Logo from './Logo'
 import SymptomDisplayer from './SymptomDisplayer'
 
 
-const Navbar = ({selectedSymptoms, diagnoseClick, symptomDelete}) => {
+const Navbar = ({selectedSymptoms, diagnoseClick, symptomDelete, backToSymptomSelect, showingDiagnoses}) => {
 
 
     return (
@@ -13,6 +13,8 @@ const Navbar = ({selectedSymptoms, diagnoseClick, symptomDelete}) => {
                 selectedSymptoms={selectedSymptoms}
                 diagnoseClick={diagnoseClick}
                 symptomDelete={symptomDelete}
+                backToSymptomSelect={backToSymptomSelect}
+                showingDiagnoses={showingDiagnoses}
             />
         </nav>
     )
